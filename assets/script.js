@@ -54,7 +54,7 @@ function updateCarousel() {//fonction qui fait fonctionner le carrousel d'image
 
 const Clickflechedroite = document.querySelector(".arrow_right");
 Clickflechedroite.addEventListener("click", () => {
-	currentSlide = currentSlide + 1;//lorsqu'on click (eventlistener) flèche droite, alors on avance de +1 par rapporta l'array
+	currentSlide++;//lorsqu'on click (eventlistener) flèche droite, alors on avance de +1 par rapporta l'array
 	if (currentSlide >= slides.length) {
         currentSlide = 0;//SI la slide actuelle est au dela de la longueur du tableau, alors l'image revient a 0 (première image)
     }
@@ -63,7 +63,7 @@ Clickflechedroite.addEventListener("click", () => {
 
 const Clickflechegauche = document.querySelector(".arrow_left");
 Clickflechegauche.addEventListener("click", () => {
-	currentSlide = currentSlide - 1;//lorsqu'on click (eventlistener) flèche gauche, alors on recule de -1 par rapporta l'array
+	currentSlide--;//lorsqu'on click (eventlistener) flèche gauche, alors on recule de -1 par rapporta l'array
 	if (currentSlide < 0) {
         currentSlide = slides.length - 1;//SI la slide actuelle est inférieur à 0 (avant la première image), alors l'image revient a la dernière image
     }
