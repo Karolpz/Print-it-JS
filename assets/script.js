@@ -23,7 +23,7 @@ const slides = [//array des images et texte
 //***CREATION DES BULLET POINTS ***//
 const DotsContainer = document.querySelector(".dots")//déclaration de la variable dotscontainer via la classe .dots(pour pouvoir manipuler/dynamiser)
 
-slides.forEach((slide, index) => {// forEach = pour chaque élément de mon array, ajoute un point
+slides.forEach(() => {// forEach = pour chaque élément de mon array, ajoute un point
 	const dot = document.createElement("div");
 	dot.classList.add("dot");//on associe la varibale dot à la classe .dot
 	DotsContainer.appendChild(dot);//on met cette classe .dot dans le parent dotsContainer
@@ -39,18 +39,15 @@ function dotSelected(index) {
 		}
 	});
 }
-dotSelected(0)
+dotSelected(currentSlide)
 
 //***CREATION DU CARROUSEL ***//
-function updateCarousel(image, tagLine) {//fonction qui fait fonctionner le carrousel d'image
-
+function updateCarousel(image, tagLine) {//fonction qui fait creer le carrousel d'image
 	const imageElement = document.querySelector(".banner-img");
 	imageElement.src = `./assets/images/slideshow/${image}`;//chemin de l'image avec une variable d'ou le "`"
 
-
 	const textElement = document.querySelector("#banner p");
 	textElement.innerHTML = tagLine; //le commentaire avec l'image
-
 }
 
 const Clickflechedroite = document.querySelector(".arrow_right");
@@ -59,8 +56,8 @@ Clickflechedroite.addEventListener("click", () => {
 	if (currentSlide >= slides.length) {
 		currentSlide = 0;//SI la slide actuelle est au dela de la longueur du tableau, alors l'image revient a 0 (première image)
 	}
-	updateCarousel(slides[currentSlide].image, slides[currentSlide].tagLine);//execution de la fontion
-	dotSelected(currentSlide)
+	updateCarousel(slides[currentSlide].image, slides[currentSlide].tagLine);//execution de la fonction pour afficher l'image
+	dotSelected(currentSlide)//execution de la fonction pour afficher le dot_selected
 });
 
 const Clickflechegauche = document.querySelector(".arrow_left");
@@ -69,8 +66,8 @@ Clickflechegauche.addEventListener("click", () => {
 	if (currentSlide < 0) {
 		currentSlide = slides.length - 1;//SI la slide actuelle est inférieur à 0 (avant la première image), alors l'image revient a la dernière image
 	}
-	updateCarousel(slides[currentSlide].image, slides[currentSlide].tagLine);//execution de la fontion
-	dotSelected(currentSlide)
+	updateCarousel(slides[currentSlide].image, slides[currentSlide].tagLine);//execution de la fonction pour afficher l'image
+	dotSelected(currentSlide)//execution de la fonction pour afficher le dot_selected
 });
 
 
