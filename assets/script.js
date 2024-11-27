@@ -29,10 +29,10 @@ slides.forEach(() => {// forEach = pour chaque élément de mon array, ajoute un
 	DotsContainer.appendChild(dot);//on met cette classe .dot dans le parent dotsContainer
 })
 
-function dotSelected(index) {
+function dotSelected(slide) {
 	const dots = document.querySelectorAll(".dot"); // on sélectionne tous les dots
-	dots.forEach((dot, i) => {//vu qu'on a utilise le queryselectorall, on a crée un nodelist, pour manipuler tous les dots il faut utiliser le foreach
-		if (i === index) { // Si l'index du dot correspond à celui de l'image active
+	dots.forEach((dot, index) => {//vu qu'on a utilise le queryselectorall, on a crée un nodelist, pour manipuler tous les dots il faut utiliser le foreach
+		if (index === slide) { // Si l'index (i) du dot correspond à celui de l'image active
 			dot.classList.add("dot_selected"); // Ajoute la classe .dot_selected au dot
 		} else {
 			dot.classList.remove("dot_selected"); // Supprime la classe .dot_selected des autres dots
